@@ -1,0 +1,30 @@
+*build
+*.settings
+.gradle/
+bin/
+#*.classpath
+*.project
+*caches
+*native
+*.idea
+*gradle
+gradlew*
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Archived python tests
+test-automation.iml
+*.pyc
+nosetests.xml
+*.png
+
+#Custom exclusions
+*.bin
+/user.properties

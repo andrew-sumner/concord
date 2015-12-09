@@ -1,0 +1,8 @@
+<configuration>
+	<include resource="logback-include.xml"/>
+
+	<root level="ALL">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE-PER-TEST" />
+	</root>
+</configuration>
