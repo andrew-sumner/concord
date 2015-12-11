@@ -1,5 +1,6 @@
 package spec;
 
+import org.concordion.api.FailFast;
 import org.concordion.api.extension.Extension;
 import org.concordion.ext.LoggingFormatterExtension;
 import org.concordion.ext.loggingFormatter.LogbackAdaptor;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import myextensions.SpecificationProcessingExtension;
 
 @RunWith(ConcordionRunner.class)
+@FailFast
 public abstract class BaseWebFixture2_0 {
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
     

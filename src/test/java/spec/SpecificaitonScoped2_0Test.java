@@ -23,7 +23,7 @@ public class SpecificaitonScoped2_0Test extends BaseWebFixture2_0 {
     public int getI() {
     	getLogger().debug(testName + ": setting i to " + i.incrementAndGet());
     	
-    	if (i.get() > 2) {
+    	if (i.get() == 2) {
     		throw new RuntimeException("i > 2");
     	}
     	
