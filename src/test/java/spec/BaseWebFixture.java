@@ -2,7 +2,7 @@ package spec;
 
 import org.concordion.api.extension.Extension;
 import org.concordion.ext.LoggingFormatterExtension;
-import org.concordion.ext.loggingFormatter.LogbackHelper;
+import org.concordion.ext.loggingFormatter.LogbackAdaptor;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,11 +14,11 @@ import myextensions.SpecificationProcessingExtension;
 public abstract class BaseWebFixture {
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
     
-    @Extension public final LoggingFormatterExtension loggingFormatter = new LoggingFormatterExtension(false);
+    @Extension public final LoggingFormatterExtension loggingFormatter = new LoggingFormatterExtension();
 	@Extension public final SpecificationProcessingExtension specificationProcessing = new SpecificationProcessingExtension(this);
 	
     static {
-    	LogbackHelper.logInternalStatus();
+    	LogbackAdaptor.logInternalStatus();
 	}
     
 	public Logger getLogger() {
@@ -28,7 +28,7 @@ public abstract class BaseWebFixture {
 	
     @myextensions.BeforeSpecification
     final public void startUp() {
-    	LogbackHelper.startTestLogging(this);
+    	LogbackAdaptor.startTestLogging(this);
     	
     	// This is the name that can be given to the RunSingleTest job in Jenkins
     	String testName = this.getClass().getName().replace(BaseWebFixture.class.getPackage().getName() + ".", "");
@@ -40,6 +40,6 @@ public abstract class BaseWebFixture {
     final public void tearDown() throws Exception {
     	logger.info("Tearing down the acceptance test class {} on thread {}", this.getClass().getSimpleName(), Thread.currentThread().getName());
     	
-        LogbackHelper.stopTestLogging();
+    	LogbackAdaptor.stopTestLogging();
 	}
 }

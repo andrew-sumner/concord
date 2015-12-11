@@ -1,13 +1,19 @@
 package spec;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.concordion.api.SpecificationScoped;
 import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 
 public class SpecificaitonScopedTest extends BaseWebFixture {
 	String testName;
 	
-    //@SpecificationScoped
-    Integer i = 0;
+    @SpecificationScoped
+    AtomicInteger i = new AtomicInteger(2);
+    
+    @SpecificationScoped
+    String b = "1";
     
     @Rule
     public TestWatcher watcher = new TestWatcher() {
@@ -17,9 +23,13 @@ public class SpecificaitonScopedTest extends BaseWebFixture {
     	};
 	};
     
-    public int getI() {
-    	i++;
-    	getLogger().debug(testName + ": setting i to " + i);
-    	return i;
+    public String getI() {    	
+    	i.incrementAndGet();
+    	getLogger().debug(testName + ": setting i to " + i.get());
+    	//return i.get();
+    	
+    	b = b + "1";
+    	
+    	return b;
     }
 }
