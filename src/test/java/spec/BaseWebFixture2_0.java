@@ -9,8 +9,6 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import myextensions.SpecificationProcessingExtension;
-
 @RunWith(ConcordionRunner.class)
 @FailFast
 public abstract class BaseWebFixture2_0 {
