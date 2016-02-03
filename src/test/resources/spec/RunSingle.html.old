@@ -1,0 +1,68 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion" xmlns:ext="urn:concordion-extensions:2010">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link href="../concordion.css" rel="stylesheet" type="text/css" />
+<title>Declare Wages</title>
+</head>
+<body>
+	<h1>Declare Wages</h1>
+
+	As a client I want to enter my wages for the week in which I earned them so that I can ensure my benefit is accurate
+
+	<div class="Acceptance Criteria">
+		<h3>Acceptance Criteria</h3>
+		<ul>
+			<li>No more then 10 employers may be entered in any one declaration</li>
+			<li>No more then 120 hours total may be entered in any one declaration</li>
+			<li>No more than 5,000 dollars in total may be entered in any one declaration</li>
+			<li>No more than 59 minutes can be added into a minutes field</li>
+			<li>The client can cancel a wage entry that was added in error while declaring wages</li>
+			<li>The client will select the week of change first</li>
+			<li>The client can select a previously-entered (in MyMSD) employer or add a new employer</li>
+			<li>The client may choose 1 of 4 options for entering wages:</li>
+			<ol>
+				<li>Total gross and total hours for the week</li>
+				<li>Hourly gross and total hours for the week</li>
+				<li>Hourly gross and hours by day for the week</li>
+				<li>No wages this week</li>
+			</ol>
+			<li>The client may only declare from the week of their previous declaration (or the week of their grant date), whichever is later.  </li>
+			<li>Where a client attempts to declares income before their benefit is current, they will be directed to contact us.  </li>
+			<li>The client may not declare a future weeks wages.  </li>
+			<li>Clients on a sole parent rate of benefit will have the option of entering unsubsidized childcare cost</li>
+		</ul>
+	</div>
+
+ 	<div class="example">
+		<h3>Declare my simple weekly income</h3>
+
+	 	And I <b c:assertTrue="log(#TEXT)">can</b> confirm my entry and see the success page<br />
+	</div>
+
+	<div class="Acceptance Criteria">
+		<h3>Acceptance Criteria</h3>
+		<ul>
+			<li>No more then 10 employers may be entered in any one declaration</li>
+			<li>No more then 120 hours total may be entered in any one declaration</li>
+			<li>No more than 5,000 dollars in total may be entered in any one declaration</li>
+			<li>No more than 59 minutes can be added into a minutes field</li>
+			<li>The client can cancel a wage entry that was added in error while declaring wages</li>
+			<li>The client will select the week of change first</li>
+			<li>The client can select a previously-entered (in MyMSD) employer or add a new employer</li>
+			<li>The client may choose 1 of 4 options for entering wages:</li>
+			<ol>
+				<li>Total gross and total hours for the week</li>
+				<li>Hourly gross and total hours for the week</li>
+				<li>Hourly gross and hours by day for the week</li>
+				<li>No wages this week</li>
+			</ol>
+			<li>The client may only declare from the week of their previous declaration (or the week of their grant date), whichever is later.  </li>
+			<li>Where a client attempts to declares income before their benefit is current, they will be directed to contact us.  </li>
+			<li>The client may not declare a future weeks wages.  </li>
+			<li>Clients on a sole parent rate of benefit will have the option of entering unsubsidized childcare cost</li>
+		</ul>
+	</div>
+
+
+</body>
+</html>
