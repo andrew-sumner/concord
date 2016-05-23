@@ -16,9 +16,6 @@ import org.slf4j.LoggerFactory;
 @RunWith(ConcordionRunner.class)
 @FailFast
 public abstract class BaseFixture {
-	@Extension 
-	public final StoryboardExtension storyboard = new StoryboardExtension().setScreenshotTaker(null);
-	
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 	private WebDriver driver;
 	
@@ -31,8 +28,6 @@ public abstract class BaseFixture {
     		driver = new FirefoxDriver();
     	}
     	
-    	storyboard.setScreenshotTaker(new SeleniumScreenshotTaker(driver));
-    	
     	driver.manage().window().maximize();
     	
     	return driver;
@@ -44,18 +39,9 @@ public abstract class BaseFixture {
     		driver = null;
     	}
     }
-    
-    @Before
-    final public void beforeSpecification() {
-    	// This is the name that can be given to the RunSingleTest job in Jenkins
-    	String testName = this.getClass().getName().replace(BaseFixture.class.getPackage().getName() + ".", "");
-    	
-    	logger.info("Initialising the acceptance test class {} on thread {}", testName, Thread.currentThread().getName());
-    }
 
     @After
     final public void afterSpecification() throws Exception {
-    	logger.info("Tearing down the acceptance test class {} on thread {}", this.getClass().getSimpleName(), Thread.currentThread().getName());
     	closeBrowser();
 	}
 }

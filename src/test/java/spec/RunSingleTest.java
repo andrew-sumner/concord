@@ -5,7 +5,7 @@ import org.junit.rules.TestWatcher;
 
 public class RunSingleTest extends BaseFixture {
 	String testName;
-
+	
 	@Rule
 	public TestWatcher watcher = new TestWatcher() {
 		@Override
@@ -16,8 +16,8 @@ public class RunSingleTest extends BaseFixture {
 
 	public boolean log(String message) {
 		//getBrowser().get("www.google.co.nz");
-		getLogger().info("GOT HERE");
-		int i = 10 / 0;
+		System.out.println(message);
+//		int i = 10 / 0;
 		
 //		storyboard.addScreenshot("Google1", "search page");
 //		storyboard.addScreenshot("Google2", "search page");
@@ -27,4 +27,6 @@ public class RunSingleTest extends BaseFixture {
 
 		return true;
 	}
+
+	
 }
