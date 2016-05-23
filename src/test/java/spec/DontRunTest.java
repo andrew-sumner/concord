@@ -1,6 +1,6 @@
 package spec;
 
-public class RunSingle2Test extends BaseFixture {
+public class DontRunTest extends BaseFixture {
 	String testName = getTestName();
 
 	private String getTestName() {
