@@ -16,9 +16,6 @@ public class DontRunTest extends BaseFixture {
 	}
 
 	public boolean log(String message) {
-		//getBrowser().get("www.google.co.nz");
-		getLogger().info("GOT HERE");
-		
 		return true;
 	}
 }

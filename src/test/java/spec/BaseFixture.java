@@ -1,5 +1,6 @@
 package spec;
 
+import org.concordion.api.AfterSuite;
 import org.concordion.api.FailFast;
 import org.concordion.api.extension.Extension;
 import org.concordion.ext.StoryboardExtension;
@@ -16,33 +17,9 @@ import org.slf4j.LoggerFactory;
 @RunWith(ConcordionRunner.class)
 @FailFast
 public abstract class BaseFixture {
-    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-	private WebDriver driver;
-	
-    public Logger getLogger() {
-		return logger;
-	}
-	
-    public WebDriver getBrowser() {
-    	if (driver == null) {
-    		driver = new FirefoxDriver();
-    	}
-    	
-    	driver.manage().window().maximize();
-    	
-    	return driver;
-    }
-    
-    public void closeBrowser() {
-    	if (driver != null) {
-    		driver.quit();
-    		driver = null;
-    	}
-    }
-
-    @After
+    @AfterSuite
     final public void afterSpecification() throws Exception {
-    	closeBrowser();
+    	System.out.println("AFTER SUITE");
 	}
 }
 

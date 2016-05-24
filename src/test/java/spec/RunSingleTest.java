@@ -15,16 +15,6 @@ public class RunSingleTest extends BaseFixture {
 	};
 
 	public boolean log(String message) {
-		//getBrowser().get("www.google.co.nz");
-		System.out.println(message);
-//		int i = 10 / 0;
-		
-//		storyboard.addScreenshot("Google1", "search page");
-//		storyboard.addScreenshot("Google2", "search page");
-//		storyboard.addScreenshot("Google3", "search page");
-//
-//		getLogger().warn(testName + " logging " + message);
-
 		return true;
 	}
 
