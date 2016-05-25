@@ -1,61 +1,26 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'findbugs'
-apply plugin: 'checkstyle'
-apply plugin: 'maven'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 repositories {
 	mavenLocal()
-	maven {
-          url "https://oss.jfrog.org/artifactory/libs-snapshot"
-	}     
     mavenCentral()
 }
 
 dependencies {
-    // Selenium WebDriver & AppliTools-Eyes
-    testCompile 'org.seleniumhq.selenium:selenium-java:2.49.1'
-    //testCompile 'org.seleniumhq.selenium:selenium-chrome-driver:2.49.1'
-    //testCompile 'com.applitools:eyes-selenium-java:2.30'
-    //testCompile 'ru.yandex.qatools.htmlelements:htmlelements-java:1.14'
-    
-    // JUnit
-	//testCompile "junit:junit:4.12"
-	//testCompile 'org.hamcrest:hamcrest-junit:2.0.0.0'
-	
-	// Logging
-	testCompile 'org.slf4j:slf4j-api:1.7.12'	// http://www.slf4j.org/download.html
-	testCompile 'ch.qos.logback:logback-classic:1.1.3'
-	
-	//Reporting
-	//testCompile 'com.relevantcodes:extentreports:2.40'
-	
     // Concordion 
     testCompile 'org.concordion:concordion:2.0.3-SNAPSHOT'
-    testCompile 'org.concordion:concordion-storyboard-extension:1.0.0-SNAPSHOT'
-    testCompile 'org.concordion:concordion-logback-extension:1.0.0-SNAPSHOT'
     
-    //testCompile 'org.concordion:concordion:1.5.1'
-    //testCompile 'org.concordion:concordion-storyboard-extension:0.3.3'
-    //testCompile 'org.concordion:concordion-logback-extension:0.3.0'
-    
+   	//testCompile "junit:junit:4.12"
 }
 
 test {
 	// need utf-8 to get text with non-standard chars e.g. apostrophes comparing successfully 
-    compileTestJava.options.encoding = "UTF-8"    
-    //include '**/Specification.*'
-        
-    if (System.getProperty('logback.configurationFile') != null && System.getProperty('logback.configurationFile').trim().length() > 0) {
-		systemProperty 'logback.configurationFile', System.getProperty('logback.configurationFile')
-	}
-	//if (System.getProperty('concordion.run.threadCount') != null && System.getProperty('concordion.run.threadCount').trim().length() > 0) {
-	//	systemProperty 'concordion.run.threadCount', System.getProperty('concordion.run.threadCount')
-	//}
+    compileTestJava.options.encoding = "UTF-8"
     
+    //include '**/RunSingleTest.*'
+        
     systemProperty 'concordion.output.dir', "$reporting.baseDir/spec"
     systemProperty 'environment', System.getProperty('environment')
     systemProperty 'screenSize', System.getProperty('screenSize')
