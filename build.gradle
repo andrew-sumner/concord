@@ -10,9 +10,13 @@ repositories {
 
 dependencies {
     // Concordion 
-    testCompile 'org.concordion:concordion:2.0.3-SNAPSHOT'
+    testCompile 'org.concordion:concordion:2.0.2'
     
    	//testCompile "junit:junit:4.12"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
 }
 
 test {
