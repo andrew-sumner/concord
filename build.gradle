@@ -11,8 +11,6 @@ repositories {
 dependencies {
     // Concordion 
     testCompile 'org.concordion:concordion:2.0.2'
-    
-   	//testCompile "junit:junit:4.12"
 }
 
 task wrapper(type: Wrapper) {
@@ -20,14 +18,8 @@ task wrapper(type: Wrapper) {
 }
 
 test {
-	// need utf-8 to get text with non-standard chars e.g. apostrophes comparing successfully 
-    compileTestJava.options.encoding = "UTF-8"
-    
     //include '**/RunSingleTest.*'
         
-    systemProperty 'concordion.output.dir', "$reporting.baseDir/spec"
-    systemProperty 'environment', System.getProperty('environment')
-    systemProperty 'screenSize', System.getProperty('screenSize')
     outputs.upToDateWhen { false } // ensure the tests run each time, even if no changes to test code
     testLogging.showStandardStreams = true
 	testLogging.showExceptions = true
