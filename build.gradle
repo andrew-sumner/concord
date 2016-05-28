@@ -11,6 +11,7 @@ repositories {
 dependencies {
     // Concordion 
     testCompile 'org.concordion:concordion:2.0.2'
+    //testCompile 'org.concordion:concordion:1.5.1'
 }
 
 task wrapper(type: Wrapper) {

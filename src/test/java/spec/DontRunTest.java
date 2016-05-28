@@ -19,7 +19,7 @@ public class DontRunTest {
 		return "TestName";
 	}
 
-	public boolean log(String message) {
-		return true;
+	public String getGreeting() {
+		return "Hi";
 	}
 }

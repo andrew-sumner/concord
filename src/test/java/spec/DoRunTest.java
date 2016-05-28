@@ -6,8 +6,9 @@ import org.junit.runner.RunWith;
 @RunWith(ConcordionRunner.class)
 public class DoRunTest {
 
-	public boolean log(String message) {
-		return true;
+	public String getGreeting() {
+		return "Hello World!";
 	}
+
 	
 }
